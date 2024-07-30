@@ -35,10 +35,8 @@ st.title('Correción de archivo FALLAS para carga de bases móviles')
 uploaded_file = st.file_uploader("Seleccione el archivo .txt de FALLAS",type='txt')
 
 if uploaded_file is not None and uploaded_file.name.startswith("FALLA"):
-    bytes_data = uploaded_file.read()
     st.write("Archivo abierto:", uploaded_file.name)
-    df = pd.read_csv(uploaded_file.name, dtype="object", encoding='latin1', header=None)
-
+    df = pd.read_csv(uploaded_file, dtype="object", encoding='latin1', header=None)
     s1 = df.style.map(color_causa,subset=pd.IndexSlice[:,[12]])\
         .map(color_alert_max_10000,subset=pd.IndexSlice[:,[10]])
     #s2 = df.style.apply(color_test2, color='green',subset=pd.IndexSlice[:,[12]])\
