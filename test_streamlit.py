@@ -26,7 +26,7 @@ def max_correction(df_intern):
             df_intern.iloc[idx,10]="009999.99"
     return df_intern
 
-cause_list = ["DIS2", "OTR2", "VAN3"]
+cause_list = ["DIS2", "OTR2", "VAN3","OPE6","OPE22","ARB1","INC1","OPE1"]
 
 
 st.set_page_config(layout="wide")
