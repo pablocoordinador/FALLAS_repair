@@ -18,7 +18,7 @@ def color_alert_max_10000(v):
 def color_causa(v):
     props='color:red;'
     #props="red"
-    return props if not v in cause_list else None
+    return None if not v in cause_list else None
 
 def max_correction(df_intern):
     for idx,elements in enumerate(df_intern.iloc[:,10]):
@@ -26,13 +26,13 @@ def max_correction(df_intern):
             df_intern.iloc[idx,10]="009999.99"
     return df_intern
 
-cause_list = ["DIS2", "OTR2", "VAN3","OPE6","OPE22","ARB1","INC1","OPE1"]
+cause_list=["ACC1","ACC2","ACC3","ACC4","ACC5","ANI1","ARB1","ARB2","AUT1","CLI1","CLI2","COM1","COM2","DIS1","DIS2","DIS3","DIS4","DIS5","DIS6","DIS7","INC1","OPE1","OPE10","OPE11","OPE12","OPE13","OPE14","OPE16","OPE17","OPE18","OPE19","OPE2","OPE20","OPE21","OPE22","OPE23","OPE3","OPE4","OPE5","OPE6","OPE7","OPE8","OPE9","OTR2","VAN1","VAN2","VAN3"]
 
 
 st.set_page_config(layout="wide")
-st.title('Correción de archivo FALLAS para carga de bases móviles')
+st.title('Correción de archivo FALLA para carga de bases móviles')
 
-uploaded_file = st.file_uploader("Seleccione el archivo .txt de FALLAS",type='txt')
+uploaded_file = st.file_uploader("Seleccione el archivo FALLA*.txt",type='txt')
 
 if uploaded_file is not None and uploaded_file.name.startswith("FALLA"):
     st.write("Archivo abierto:", uploaded_file.name)
